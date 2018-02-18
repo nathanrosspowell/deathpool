@@ -1,0 +1,8 @@
+# Folders
+/_*
+/.grunt
+/node_modules
+
+# Vim
+*.sw*
+*~
