@@ -42,17 +42,118 @@ module.exports = function(grunt) {
                     '_temp/home/index.html',
                     '_temp/home/footer.html'
                 ]
-            }
+            },
+
+            teams: {
+                template: [
+                    'templates/header.html',
+                    'templates/teams.html',
+                    'templates/footer.html'
+                ],
+                templateData: [
+                    'data/pages/teams.json',
+                    'data/pages/teams.json',
+                    'data/pages/teams.json'
+                ],
+                output: [
+                    '_temp/teams/header.html',
+                    '_temp/teams/index.html',
+                    '_temp/teams/footer.html'
+                ]
+            },
+
+            people: {
+                template: [
+                    'templates/header.html',
+                    'templates/people.html',
+                    'templates/footer.html'
+                ],
+                templateData: [
+                    'data/pages/people.json',
+                    'data/pages/people.json',
+                    'data/pages/people.json'
+                ],
+                output: [
+                    '_temp/people/header.html',
+                    '_temp/people/index.html',
+                    '_temp/people/footer.html'
+                ]
+            },
+
+            scores: {
+                template: [
+                    'templates/header.html',
+                    'templates/scores.html',
+                    'templates/footer.html'
+                ],
+                templateData: [
+                    'data/pages/scores.json',
+                    'data/pages/scores.json',
+                    'data/pages/scores.json'
+                ],
+                output: [
+                    '_temp/scores/header.html',
+                    '_temp/scores/index.html',
+                    '_temp/scores/footer.html'
+                ]
+            },
+
+            charts: {
+                template: [
+                    'templates/header.html',
+                    'templates/charts.html',
+                    'templates/footer.html'
+                ],
+                templateData: [
+                    'data/pages/charts.json',
+                    'data/pages/charts.json',
+                    'data/pages/charts.json'
+                ],
+                output: [
+                    '_temp/charts/header.html',
+                    '_temp/charts/index.html',
+                    '_temp/charts/footer.html'
+                ]
+            },
         },
         concat: {
             main: {
                 files: {
-                    // programmer_talk
+                    // Homepage
                     '_build/index.html' : [
                         '_temp/home/header.html',
                         '_temp/home/index.html',
                         '_temp/home/footer.html'
-                    ]
+                    ],
+
+                    // Teams
+                    '_build/teams/index.html' : [
+                        '_temp/teams/header.html',
+                        '_temp/teams/index.html',
+                        '_temp/teams/footer.html'
+                    ],
+
+                    // People
+                    '_build/people/index.html' : [
+                        '_temp/people/header.html',
+                        '_temp/people/index.html',
+                        '_temp/people/footer.html'
+                    ],
+
+                    // Scores
+                    '_build/scores/index.html' : [
+                        '_temp/scores/header.html',
+                        '_temp/scores/index.html',
+                        '_temp/scores/footer.html'
+                    ],
+
+                    // Charts
+                    '_build/charts/index.html' : [
+                        '_temp/charts/header.html',
+                        '_temp/charts/index.html',
+                        '_temp/charts/footer.html'
+                    ],
+
                 }
             }
         },

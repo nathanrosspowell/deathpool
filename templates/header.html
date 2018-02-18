@@ -2,24 +2,24 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Death Pool 2018</title>
+      <title>Death Pool 2018 : {{ name }}</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all,follow">
       <!-- Bootstrap CSS-->
-      <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ asset_path }}vendor/bootstrap/css/bootstrap.min.css">
       <!-- Font Awesome CSS-->
-      <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{ asset_path }}vendor/font-awesome/css/font-awesome.min.css">
       <!-- Custom Font Icons CSS-->
-      <link rel="stylesheet" href="css/font.css">
+      <link rel="stylesheet" href="{{ asset_path }}css/font.css">
       <!-- Google fonts - Muli-->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
       <!-- theme stylesheet-->
-      <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+      <link rel="stylesheet" href="{{ asset_path }}css/style.default.css" id="theme-stylesheet">
       <!-- Custom stylesheet - for your changes-->
-      <link rel="stylesheet" href="css/custom.css">
+      <link rel="stylesheet" href="{{ asset_path }}css/custom.css">
       <!-- Favicon-->
-      <link rel="shortcut icon" href="img/favicon.ico">
+      <link rel="shortcut icon" href="{{ asset_path }}img/favicon.ico">
       <!-- Tweaks for older IEs--><!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -56,11 +56,11 @@
          <!-- Sidebar Navigation-->
          <nav id="sidebar">
             <ul class="list-unstyled">
-               <li class="active"><a href="./"> <i class="icon-home"></i>Home </a></li>
-               <li><a href="/teams"> <i class="fa fa-users"></i>Teams </a></li>
-               <li><a href="/people"> <i class="fa fa-address-book"></i>People </a></li>
-               <li><a href="/scores"> <i class="fa fa-trophy"></i>Scores </a></li>
-               <li><a href="/charts"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+              <li class="{{ home_active }}"><a href="{{asset_path}}index.html"> <i class="icon-home"></i>Home </a></li>
+              <li class="{{ teams_active }}"><a href="{{asset_path}}teams/index.html"> <i class="fa fa-users"></i>Teams </a></li>
+              <li class="{{ people_active }}"><a href="{{asset_path}}people/index.html"> <i class="fa fa-address-book"></i>People </a></li>
+              <li class="{{ scores_active }}"><a href="{{asset_path}}scores/index.html"> <i class="fa fa-trophy"></i>Scores </a></li>
+              <li class="{{ charts_active }}"><a href="{{asset_path}}charts/index.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
                <li>
                   <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-calendar"></i>Previous Years</a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
