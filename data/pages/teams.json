@@ -1,5 +1,14 @@
 {
     "name" : "Teams",
     "asset_path" : "../",
-    "teams_active" : "active"
+    "teams_active" : "active",
+    "teams" : [
+        "Renée-Claude",
+        "Richard",
+        "Charles",
+        "Valérie",
+        "Dany",
+        "Kaurence",
+        "Nathan"
+    ]
 }

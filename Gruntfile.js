@@ -11,9 +11,9 @@ module.exports = function(grunt) {
                         expand: true, 
                     },
                     {
-                        cwd: 'assets/',
+                        cwd: 'meta/',
                         src: ['**/*'],
-                        dest: '_temp/',
+                        dest: '_build/',
                         expand: true, 
                     },
                     {
