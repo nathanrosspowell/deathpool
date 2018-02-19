@@ -44,24 +44,6 @@ module.exports = function(grunt) {
                 ]
             },
 
-            teams: {
-                template: [
-                    'templates/header.html',
-                    'templates/teams.html',
-                    'templates/footer.html'
-                ],
-                templateData: [
-                    'data/pages/teams.json',
-                    'data/pages/teams.json',
-                    'data/pages/teams.json'
-                ],
-                output: [
-                    '_temp/teams/header.html',
-                    '_temp/teams/index.html',
-                    '_temp/teams/footer.html'
-                ]
-            },
-
             people: {
                 template: [
                     'templates/header.html',
@@ -98,23 +80,6 @@ module.exports = function(grunt) {
                 ]
             },
 
-            charts: {
-                template: [
-                    'templates/header.html',
-                    'templates/charts.html',
-                    'templates/footer.html'
-                ],
-                templateData: [
-                    'data/pages/charts.json',
-                    'data/pages/charts.json',
-                    'data/pages/charts.json'
-                ],
-                output: [
-                    '_temp/charts/header.html',
-                    '_temp/charts/index.html',
-                    '_temp/charts/footer.html'
-                ]
-            },
         },
         concat: {
             main: {
@@ -124,13 +89,6 @@ module.exports = function(grunt) {
                         '_temp/home/header.html',
                         '_temp/home/index.html',
                         '_temp/home/footer.html'
-                    ],
-
-                    // Teams
-                    '_build/teams/index.html' : [
-                        '_temp/teams/header.html',
-                        '_temp/teams/index.html',
-                        '_temp/teams/footer.html'
                     ],
 
                     // People
@@ -145,13 +103,6 @@ module.exports = function(grunt) {
                         '_temp/scores/header.html',
                         '_temp/scores/index.html',
                         '_temp/scores/footer.html'
-                    ],
-
-                    // Charts
-                    '_build/charts/index.html' : [
-                        '_temp/charts/header.html',
-                        '_temp/charts/index.html',
-                        '_temp/charts/footer.html'
                     ],
 
                 }

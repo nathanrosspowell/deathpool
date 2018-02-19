@@ -1,5 +1,16 @@
 {
     "name" : "Scores",
     "asset_path" : "../",
-    "scores_active" : "active"
+    "scores_active" : "active",
+    "top3" : [
+        "Renée-Claude",
+        "Richard",
+        "Charles",
+    ],
+    "teams" : [
+        "Valérie",
+        "Dany",
+        "Laurence",
+        "Nathan"
+    ]
 }

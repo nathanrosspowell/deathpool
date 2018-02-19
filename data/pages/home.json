@@ -1,16 +1,13 @@
 {
     "name" : "Home",
     "home_active" : "active",
-    "top3" : [
+    "teams" : [
         "Renée-Claude",
         "Richard",
         "Charles",
-    ],
-    "teams" : [
         "Valérie",
         "Dany",
         "Laurence",
         "Nathan"
     ]
 }
-
