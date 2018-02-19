@@ -1,10 +1,38 @@
-
-  <div class="page-header">
-     <div class="container-fluid">
-       <h2 class="h5 no-margin-bottom">{{ name }}</h2>
+<div class="page-header">
+   <div class="container-fluid">
+      <h2 class="h5 no-margin-bottom">{{ name }}</h2>
+   </div>
+</div>
+<section class="no-padding-top">
+   <div class="container-fluid">
+      <div class="row">
+         {{#each teams}}
+         <div class="col-lg-6">
+            <div class="block margin-bottom-sm">
+              <div class="title"><strong>{{ name }}</strong></div>
+               <div class="table-responsive">
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <th>#</th>
+                           <th>Name</th>
+                           <th>Status</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {{#each people}}
+                        <tr>
+                          <th scope="row">{{ @index }}</th>
+                           <td>{{ name }}</td>
+                           <td>{{ status }}</td>
+                        </tr>
+                        {{/each}}
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         {{/each}}
      </div>
-
-  </div>
-  
-  Hello, world!
-
+   </div>
+</section>
