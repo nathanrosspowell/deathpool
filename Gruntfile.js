@@ -119,11 +119,16 @@ module.exports = function(grunt) {
         json_merge: {
             options: {
                 replacer: null,
-                space: " "
+                space: 4
             },
             deathpool: {
                 files: { 
                     '_temp/data/all-people.json': ['data/people/*.json']
+                }
+            },
+            computed: {
+                files: { 
+                    '_temp/data/computed.json': ['_temp/data/computed/*.json']
                 }
             }
         }
@@ -139,10 +144,9 @@ module.exports = function(grunt) {
     // Custom steps
     grunt.registerTask('custom-build', 'Building the special json files.', function() {
 
-        grunt.log.writeln('Building Json Files...');
-        // load people
+        //////////////////////////////////////////////////////////////
+        // People.
         var people = grunt.file.readJSON('_temp/data/all-people.json')
-
         var today = Date.now();
         dead_people = {}
         for (var key in people) {
@@ -161,16 +165,78 @@ module.exports = function(grunt) {
             var age = Math.abs(ageDate.getUTCFullYear() - 1970);
             person.age = age;
         }
+        var people_obj = {};
+        people_obj.people = people;
+        grunt.file.write('_temp/data/computed/people.json', JSON.stringify(people_obj, null, 4));//serialize it back to file
 
-        grunt.file.write('_temp/data/all-people-stats.json', JSON.stringify(people, null, 2));//serialize it back to file
+        //////////////////////////////////////////////////////////////
+        // Teams.
+        var team_file = grunt.file.readJSON('data/teams.json');
+        var teams = team_file.teams;
+        for (var key in teams) {
+            var player = teams[key];
+            player.points = 0;
+            player.total_age = 0;
+            for (var person_index in player.people) {
+                var person_key = player.people[person_index];
+                var person = people[person_key];
+                if (person.alive === false) {
+                    player.points += 1;
+                    if (player.star === person.name) {
+                        player.points += 2;
+                    }
+                    player.total_age += person.age;
+                }
+            }
+        }
+        grunt.file.write('_temp/data/computed/teams.json', JSON.stringify(team_file, null, 4));//serialize it back to file
 
-        // load teams
-        // total up scores
-        grunt.log.writeln('Done building Json Files.');
+        //////////////////////////////////////////////////////////////
+        // Do scoring
+
+        function score_compare(a,b) {
+          // Sort to have best person in index 0.
+
+          // Sort by points.
+          if (a.points > b.points) {
+            return -1;
+          }
+          if (a.points < b.points) {
+            return 1;
+          }
+
+          // Sort by total age.
+          if (a.total_age < b.total_age) {
+            return -1;
+          }
+          if (a.total_age > b.total_age) {
+            return 1;
+          }
+
+          // Totall equal.
+          return 0;
+        }
+        var scores = []
+
+        for (var key in teams) {
+            var player = teams[key];
+            var new_player = player;
+            new_player.name = key;
+            scores.push(new_player);
+        }
+        scores.sort(score_compare);
+        names_by_score = []
+        for (var index in scores) {
+            var player = scores[index];
+            names_by_score.push(player.name);
+        }
+        var scores_obj = {};
+        scores_obj.scores = names_by_score;
+        grunt.file.write('_temp/data/computed/score.json', JSON.stringify(scores_obj, null, 4));//serialize it back to file
     });
 
     // Default task: does everything except deployment
-    grunt.registerTask('default', ['json_merge', 'custom-build', 'compile-handlebars', 'concat', 'copy' ]);
+    grunt.registerTask('default', ['json_merge:deathpool', 'custom-build', 'json_merge:computed', 'compile-handlebars', 'concat', 'copy' ]);
     // Deploy task: runs everything in order.
     grunt.registerTask('deploy', ['default', 'gh-pages']);
 };
