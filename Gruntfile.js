@@ -179,12 +179,14 @@ module.exports = function(grunt) {
         for (var key in teams) {
             var player = teams[key];
             player.points = 0;
+            player.deaths = 0;
             player.total_age = 0;
             for (var person_index in player.people) {
                 var person_key = player.people[person_index];
                 var person = people[person_key];
                 if (person.alive === false) {
                     player.points += 1;
+                    player.deaths += 1;
                     if (player.star === person.name) {
                         player.points += 2;
                     }
@@ -216,6 +218,14 @@ module.exports = function(grunt) {
             return 1;
           }
 
+          // Alphabetical
+          if (a.name < b.name) {
+              return -1;
+          }
+          if ( a.name > b.name ) {
+              return 1;
+          }
+
           // Totall equal.
           return 0;
         }
@@ -233,8 +243,31 @@ module.exports = function(grunt) {
             var player = scores[index];
             names_by_score.push(player.name);
         }
+        var titles = [
+            "1st",
+            "2nd",
+            "3rd",
+            "4th",
+            "5th",
+            "6th",
+            "7th",
+            "8th",
+            "9th",
+            "10th",
+        ]
+        var scores_and_titles = names_by_score.map(function(e, i) {
+          return { 
+              "name" : e, 
+              "title" : titles[i]
+          };
+        });
+
         var scores_obj = {};
-        scores_obj.scores = names_by_score;
+        scores_obj.scores = {};
+        scores_obj.scores.all = scores_and_titles;
+        scores_obj.scores.top_3 = scores_and_titles.slice(0, 3);
+        scores_obj.scores.the_rest = scores_and_titles.slice(3);
+
         grunt.file.write('_temp/data/computed/score.json', JSON.stringify(scores_obj, null, 4));//serialize it back to file
     });
 

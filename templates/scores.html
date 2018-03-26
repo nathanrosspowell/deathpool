@@ -6,20 +6,26 @@
 <section class="no-padding-bottom">
    <div class="container-fluid">
       <div class="row">
-         {{#each top3}}
+         {{#each scores.top_3}}
          <div class="col-lg-4">
             <div class="user-block block text-center">
                <div class="avatar">
                  <img src="{{ ../asset_path }}img/avatar-1.jpg" alt="..." class="img-fluid">
-                  <div class="order dashbg-2">1st</div>
+                 <div class="order dashbg-2">{{ title }}</div>
                </div>
                <a href="#" class="user-title">
-                 <h3 class="h5">{{this}}</h3>
+                 <h3 class="h5">{{ name }}</h3>
                </a>
                <div class="details d-flex">
-                  <div class="item"><i class="fa fa-trophy"></i><strong>4</strong></div>
-                  <div class="item"><i class="fa fa-crosshairs"></i><strong>2</strong></div>
-                  <div class="item"><i class="fa fa-calendar"></i><strong>10</strong></div>
+                  <div class="item"><i class="fa fa-trophy"></i><strong>
+                      {{ lookup (lookup ../teams name) 'points' }}
+                  </strong></div>
+                  <div class="item"><i class="fa fa-crosshairs"></i><strong>
+                      {{ lookup (lookup ../teams name) 'deaths' }}
+                  </strong></div>
+                  <div class="item"><i class="fa fa-calendar"></i><strong>
+                      {{ lookup (lookup ../teams name) 'total_age' }}
+                  </strong></div>
                </div>
             </div>
          </div>
@@ -27,21 +33,27 @@
 
       </div>
 
-       {{#each teams}}
+       {{#each scores.the_rest}}
       <div class="public-user-block block">
          <div class="row d-flex align-items-center">
             <div class="col-lg-4 d-flex align-items-center">
-               <div class="order">4th</div>
+              <div class="order">{{title}}</div>
                <div class="avatar"> <img src="{{ ../asset_path }}img/avatar-1.jpg" alt="..." class="img-fluid"></div>
-               <a href="#" class="name"><strong class="d-block">{{this}}</strong></a>
+               <a href="#" class="name"><strong class="d-block">{{name}}</strong></a>
             </div>
             <div class="col-lg-4 text-center">
             </div>
             <div class="col-lg-4">
                <div class="details d-flex">
-                  <div class="item"><i class="fa fa-trophy"></i><strong>4</strong></div>
-                  <div class="item"><i class="fa fa-crosshairs"></i><strong>2</strong></div>
-                  <div class="item"><i class="fa fa-calendar"></i><strong>10</strong></div>
+                  <div class="item"><i class="fa fa-trophy"></i><strong>
+                      {{ lookup (lookup ../teams name) 'points' }}
+                  </strong></div>
+                  <div class="item"><i class="fa fa-crosshairs"></i><strong>
+                      {{ lookup (lookup ../teams name) 'deaths' }}
+                  </strong></div>
+                  <div class="item"><i class="fa fa-calendar"></i><strong>
+                      {{ lookup (lookup ../teams name) 'total_age' }}
+                  </strong></div>
                </div>
             </div>
          </div>
@@ -49,4 +61,5 @@
       {{/each}}
 
    </div>
-</section>
+</s
+ection>
