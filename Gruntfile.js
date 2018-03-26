@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         copy: {
-            main: {
+            deathpool: {
                 files: [
                     {
                         cwd: 'assets/',
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 
         },
         concat: {
-            main: {
+            deathpool: {
                 files: {
                     // Homepage
                     '_build/index.html' : [
@@ -109,11 +109,22 @@ module.exports = function(grunt) {
             }
         },
         'gh-pages': {
-            main: {
+            deathpool: {
                 options: {
                     base: '_build'
                 },
                 src: ['**']
+            }
+        },
+        json_merge: {
+            options: {
+                replacer: null,
+                space: " "
+            },
+            deathpool: {
+                files: { 
+                    '_temp/data/all-people.json': ['data/people/*.json']
+                }
             }
         }
     });
@@ -122,8 +133,44 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-compile-handlebars');
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-json-merge');
+    grunt.loadNpmTasks('grunt-json-generator');
+
+    // Custom steps
+    grunt.registerTask('custom-build', 'Building the special json files.', function() {
+
+        grunt.log.writeln('Building Json Files...');
+        // load people
+        var people = grunt.file.readJSON('_temp/data/all-people.json')
+
+        var today = Date.now();
+        dead_people = {}
+        for (var key in people) {
+            var person = people[key];
+            var dob = new Date(person.dob).getTime();
+            var alive_date = today;
+            person.alive = true;
+            if (person.dod !== "") {
+                person.alive = false;
+                var dod = new Date(person.dod).getTime();
+                alive_date = dod;
+                dead_people[key] = key; // Just make a dict of names.
+            }
+            var ageDifMs = alive_date - dob;
+            var ageDate = new Date(ageDifMs);
+            var age = Math.abs(ageDate.getUTCFullYear() - 1970);
+            person.age = age;
+        }
+
+        grunt.file.write('_temp/data/all-people-stats.json', JSON.stringify(people, null, 2));//serialize it back to file
+
+        // load teams
+        // total up scores
+        grunt.log.writeln('Done building Json Files.');
+    });
+
     // Default task: does everything except deployment
-    grunt.registerTask('default', ['copy', 'compile-handlebars', 'concat' ]);
+    grunt.registerTask('default', ['json_merge', 'custom-build', 'compile-handlebars', 'concat', 'copy' ]);
     // Deploy task: runs everything in order.
     grunt.registerTask('deploy', ['default', 'gh-pages']);
 };

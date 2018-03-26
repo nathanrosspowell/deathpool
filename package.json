@@ -11,7 +11,7 @@
     "url": "https://github.com/nathanrosspowell/deathpool.git"
   },
   "keywords": [
-      "death pool"
+    "death pool"
   ],
   "author": "Nathan Ross Powell",
   "license": "MIT",
@@ -24,6 +24,8 @@
     "grunt-compile-handlebars": "^0.7.8",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "^0.7.0",
-    "grunt-gh-pages": "^0.9.1"
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-json-generator": "^0.1.0",
+    "grunt-json-merge": "^0.2.2"
   }
 }

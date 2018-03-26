@@ -1,0 +1,132 @@
+{
+	"teams": {
+		"Renée-Claude": {
+			"people": [
+				"George-Bush-Sr",
+				"Doris-Day",
+				"Juliette-Greco",
+				"Katherine-Johnson",
+				"Sirhan-Sirhan",
+				"Alberto-Fujimori",
+				"Raymon-Lévesque",
+				"Jane-Goodall",
+				"Lucette-Destouches",
+				"Tom-Wolfe"
+			],
+			"star": "Lucette-Destouches",
+			"alternate": "Gordon-Lighfoot"
+		},
+		"Richard": {
+			"people": [
+				"Lise-Payette",
+				"Queen-Elizabeth",
+				"Jimmy-Carter",
+				"Joseph-Ratzinger",
+				"Michel-Piccoli",
+				"Eva-Marie-Saint",
+				"Carl-Reiner",
+				"Hubert-du-Givenchy",
+				"Gerard-Poirier",
+				"Tommy-Lasorda"
+			],
+			"star": "Joseph-Ratzinger",
+			"alternate": "Jean-Coutu"
+		},
+		"Charles": {
+			"people": [
+				"Desmond-Tutu",
+				"Clint-Eastwood",
+				"Yvon-Deschamps",
+				"Jean-Chrétien",
+				"Bernard-Landry",
+				"John-Williams",
+				"Ignacio-Lula-DaSilva",
+				"James-Earl-Jones",
+				"Reccep-Tayyip-Erdogan",
+				"Tony-Bennett"
+			],
+			"star": "Yvon-Deschamps",
+			"alternate": "Benyamin-Netanyahu"
+		},
+		"Fanny": {
+			"people": [
+				"Betty-White",
+				"Claude-Dubois",
+				"Brigitte-Bardot",
+				"Vera-Lynn",
+				"Enio-Morricone",
+				"Elton-John",
+				"Peirre-Cardin",
+				"Dick-Van-Dike",
+				"Elise-Beliveau",
+				"Dick-Irvin-Jr."
+			],
+			"star": "Betty-White",
+			"alternate": "Janette-Bertrand"
+		},
+		"Valérie": {
+			"people": [
+				"Jacques-Demers",
+				"Kirk-Douglas",
+				"Bernadette-Chirac",
+				"John-McCain",
+				"Jean-Lapointe",
+				"Pierre-Nadeau",
+				"Joni-Mitchell",
+				"Dan-Bigras",
+				"Francesco-del-Balso",
+				"Charles-Aznavour"
+			],
+			"star": "John-McCain",
+			"alternate": "Serge-Theriault"
+		},
+		"Dany": {
+			"people": [
+				"Leah-Bracknell",
+				"Henri-Richard",
+				"Bob-Barker",
+				"Nabi-Tajima",
+				"Sydney-Poitier",
+				"Aretha-Franklin",
+				"Abou-Bakr-Al-Baghdadi",
+				"Joe-Jackson",
+				"Johanne-Fontaine",
+				"Henry-Kissinger"
+			],
+			"star": "Leah-Bracknell",
+			"alternate": "Rupert-Murdoch"
+		},
+		"Laurence": {
+			"people": [
+				"Olivia-de-Haviland",
+				"Barbara-Bush",
+				"Stephen-Hawkins",
+				"Kim-Yaroshevskaya",
+				"Albert-Milaire",
+				"Harry-Belafonte",
+				"Phil-Spektor",
+				"Bernie-Ecclestone",
+				"Marie-Claire-Blais",
+				"Claude-Lelouch"
+			],
+			"star": "Barbara-Bush",
+			"alternate": "Mickey-Rourke"
+		},
+		"Nathan": {
+			"people": [
+				"Price-Phillip",
+				"Stan-Lee",
+				"David-Attenborough",
+				"Billy-Graham",
+				"Buzz-Aldrin",
+				"Mel-Brooks",
+				"Joan-Collins",
+				"Sean-Connery",
+				"Burt-Reynolds",
+				"Kevin-Spacey"
+			],
+			"star": "Price-Phillip",
+			"alternate": "Liza-Minelli"
+		}
+	}
+}
