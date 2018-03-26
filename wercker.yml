@@ -1,0 +1,14 @@
+box: node:4.2.6-slim
+build:
+  steps:
+    - script:
+        code: export NODE_ENV='testing'
+    - npm-install
+    - grunt
+deploy:
+  steps:
+    - install-packages:
+        packages: git
+    - lukevivier/gh-pages:
+        token: '$GH_TOKEN'
+        basedir: build
