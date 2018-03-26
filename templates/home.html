@@ -9,12 +9,16 @@
          {{#each teams}}
          <div class="col-lg-6">
             <div class="block margin-bottom-sm">
-              <div class="title"><strong>{{ name }}</strong></div>
+              <div class="title">
+                <strong>{{ @key }}</strong>
+                <strong class="text-primary">
+                  {{ points }} pts
+                </strong> 
+              </div>
                <div class="table-responsive">
-                  <table class="table">
+                  <table class="table table-striped table-sm">
                      <thead>
                         <tr>
-                           <th>#</th>
                            <th>Name</th>
                            <th>Status</th>
                         </tr>
@@ -22,12 +26,16 @@
                      <tbody>
                         {{#each people}}
                         <tr>
-                          <th scope="row">{{ @index }}</th>
-                           <td>{{ this }}</td>
                            {{#if (lookup (lookup ../../people this) 'alive')}}
+                             <td> {{lookup (lookup ../../people this) 'name'}} </td>
                              <td> Alive </td>
-                           {{else}}}
-                             <td> Dead </td>
+                           {{else}}
+                             <td> <strong class="text-primary">
+                               {{lookup (lookup ../../people this) 'name'}} 
+                             </strong> </td>
+                             <td> <strong class="text-primary">
+                                DEAD
+                             </strong> </td>
                            {{/if}}
                         </tr>
                         {{/each}}
