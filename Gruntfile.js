@@ -33,9 +33,9 @@ module.exports = function(grunt) {
                     'templates/footer.html'
                 ],
                 templateData: [
-                    'data/pages/home.json',
-                    'data/pages/home.json',
-                    'data/pages/home.json'
+                    '_temp/data/pages/home.json',
+                    '_temp/data/pages/home.json',
+                    '_temp/data/pages/home.json'
                 ],
                 output: [
                     '_temp/home/header.html',
@@ -51,9 +51,9 @@ module.exports = function(grunt) {
                     'templates/footer.html'
                 ],
                 templateData: [
-                    'data/pages/people.json',
-                    'data/pages/people.json',
-                    'data/pages/people.json'
+                    '_temp/data/pages/people.json',
+                    '_temp/data/pages/people.json',
+                    '_temp/data/pages/people.json'
                 ],
                 output: [
                     '_temp/people/header.html',
@@ -69,9 +69,9 @@ module.exports = function(grunt) {
                     'templates/footer.html'
                 ],
                 templateData: [
-                    'data/pages/scores.json',
-                    'data/pages/scores.json',
-                    'data/pages/scores.json'
+                    '_temp/data/pages/scores.json',
+                    '_temp/data/pages/scores.json',
+                    '_temp/data/pages/scores.json'
                 ],
                 output: [
                     '_temp/scores/header.html',
@@ -128,7 +128,10 @@ module.exports = function(grunt) {
             },
             computed: {
                 files: { 
-                    '_temp/data/computed.json': ['_temp/data/computed/*.json']
+                    '_temp/data/computed.json': ['_temp/data/computed/*.json'],
+                    '_temp/data/pages/scores.json': ['data/pages/scores.json', '_temp/data/computed.json'],
+                    '_temp/data/pages/peoples.json': ['data/pages/peoples.json', '_temp/data/computed.json'],
+                    '_temp/data/pages/home.json': ['data/pages/home.json', '_temp/data/computed.json']
                 }
             }
         }

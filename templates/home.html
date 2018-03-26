@@ -23,8 +23,12 @@
                         {{#each people}}
                         <tr>
                           <th scope="row">{{ @index }}</th>
-                           <td>{{ name }}</td>
-                           <td>{{ status }}</td>
+                           <td>{{ this }}</td>
+                           {{#if (lookup (lookup ../../people this) 'alive')}}
+                             <td> Alive </td>
+                           {{else}}}
+                             <td> Dead </td>
+                           {{/if}}
                         </tr>
                         {{/each}}
                      </tbody>
@@ -35,4 +39,5 @@
          {{/each}}
      </div>
    </div>
-</section>
+</s
+ection>
