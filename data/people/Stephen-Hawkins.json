@@ -1,8 +1,8 @@
 {
     "Stephen-Hawkins" : {
 	"name": "Stephen Hawkins",
-	"wiki": "",
-	"dob": "",
-	"dod": ""
+	"wiki": "https://en.wikipedia.org/wiki/Stephen_Hawking",
+	"dob": "1942-01-08",
+	"dod": "2018-03-18"
     }
 }
