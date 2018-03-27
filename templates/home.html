@@ -20,23 +20,45 @@
                      <thead>
                         <tr>
                            <th>Name</th>
+                           <th>Age</th>
                            <th>Status</th>
                         </tr>
                      </thead>
                      <tbody>
                         {{#each people}}
                         <tr>
-                           {{#if (lookup (lookup ../../people this) 'alive')}}
-                             <td> {{lookup (lookup ../../people this) 'name'}} </td>
-                             <td> Alive </td>
-                           {{else}}
-                             <td> <strong class="text-primary">
-                               {{lookup (lookup ../../people this) 'name'}} 
-                             </strong> </td>
-                             <td> <strong class="text-primary">
-                                DEAD
-                             </strong> </td>
-                           {{/if}}
+                           {{#with (lookup ../../people this)}}
+                             <td> 
+                             {{#unless alive}}
+                                <strong class="text-primary">
+                             {{/unless}}
+                                   {{name}} 
+                                   {{#if star}}
+                                      <i class="fas fa-star"></i>
+                                   {{/if}}
+                             {{#unless alive}}
+                                 </strong> 
+                             {{/unless}}
+                             </td>
+                             <td> 
+                             {{#unless alive}}
+                                <strong class="text-primary">
+                             {{/unless}}
+                                   {{age}} 
+                             {{#unless alive}}
+                                 </strong> 
+                             {{/unless}}
+                             </td>
+                             <td>
+                               {{#if alive}}
+                                  Alive
+                               {{ else }}
+                                  <strong class="text-primary">
+                                    DEAD
+                                  </strong>
+                               {{/if}}
+                             </td>
+                           {{/with }}
                         </tr>
                         {{/each}}
                      </tbody>

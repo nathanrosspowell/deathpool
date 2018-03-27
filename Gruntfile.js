@@ -157,6 +157,7 @@ module.exports = function(grunt) {
             var dob = new Date(person.dob).getTime();
             var alive_date = today;
             person.alive = true;
+            person.star = false;
             if (person.dod !== "") {
                 person.alive = false;
                 var dod = new Date(person.dod).getTime();
@@ -168,9 +169,6 @@ module.exports = function(grunt) {
             var age = Math.abs(ageDate.getUTCFullYear() - 1970);
             person.age = age;
         }
-        var people_obj = {};
-        people_obj.people = people;
-        grunt.file.write('_temp/data/computed/people.json', JSON.stringify(people_obj, null, 4));//serialize it back to file
 
         //////////////////////////////////////////////////////////////
         // Teams.
@@ -184,17 +182,19 @@ module.exports = function(grunt) {
             for (var person_index in player.people) {
                 var person_key = player.people[person_index];
                 var person = people[person_key];
+                if (player.star == person_key) {
+                    person.star = true;
+                }
                 if (person.alive === false) {
                     player.points += 1;
                     player.deaths += 1;
-                    if (player.star === person.name) {
+                    if (person.star) {
                         player.points += 2;
                     }
                     player.total_age += person.age;
                 }
             }
         }
-        grunt.file.write('_temp/data/computed/teams.json', JSON.stringify(team_file, null, 4));//serialize it back to file
 
         //////////////////////////////////////////////////////////////
         // Do scoring
@@ -268,6 +268,12 @@ module.exports = function(grunt) {
         scores_obj.scores.top_3 = scores_and_titles.slice(0, 3);
         scores_obj.scores.the_rest = scores_and_titles.slice(3);
 
+        var people_obj = {};
+        people_obj.people = people;
+
+        // Write out all the computations.
+        grunt.file.write('_temp/data/computed/people.json', JSON.stringify(people_obj, null, 4));//serialize it back to file
+        grunt.file.write('_temp/data/computed/teams.json', JSON.stringify(team_file, null, 4));//serialize it back to file
         grunt.file.write('_temp/data/computed/score.json', JSON.stringify(scores_obj, null, 4));//serialize it back to file
     });
 
