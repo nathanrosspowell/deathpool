@@ -130,7 +130,7 @@ module.exports = function(grunt) {
                 files: { 
                     '_temp/data/computed.json': ['_temp/data/computed/*.json'],
                     '_temp/data/pages/scores.json': ['data/pages/scores.json', '_temp/data/computed.json'],
-                    '_temp/data/pages/peoples.json': ['data/pages/peoples.json', '_temp/data/computed.json'],
+                    '_temp/data/pages/people.json': ['data/pages/people.json', '_temp/data/computed.json'],
                     '_temp/data/pages/home.json': ['data/pages/home.json', '_temp/data/computed.json']
                 }
             }
